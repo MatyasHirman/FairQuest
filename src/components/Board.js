@@ -29,7 +29,7 @@ function Board() {
 
   useEffect(() => {
     // Načtení karet z Excel souboru
-    fetch('cards.xlsx')
+    fetch(`${process.env.PUBLIC_URL}/cards.xlsx`)
       .then(response => response.arrayBuffer())
       .then(data => {
         const workbook = XLSX.read(data, { type: 'array' });
