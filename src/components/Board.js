@@ -28,14 +28,20 @@ function Board() {
   const [showEnding, setShowEnding] = useState(false);
 
   useEffect(() => {
-    // Načtení karet z Excel souboru
+    console.log("Fetching cards.xlsx");
     fetch(`${process.env.PUBLIC_URL}/cards.xlsx`)
-      .then(response => response.arrayBuffer())
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.arrayBuffer();
+      })
       .then(data => {
         const workbook = XLSX.read(data, { type: 'array' });
         const firstSheetName = workbook.SheetNames[0];
         const worksheet = workbook.Sheets[firstSheetName];
         const cardData = XLSX.utils.sheet_to_json(worksheet);
+        console.log("Card data loaded:", cardData);
         const cardsBySector = cardData.reduce((acc, card) => {
           const { sector, type } = card;
           if (!acc[sector]) {
@@ -50,7 +56,10 @@ function Board() {
           return acc;
         }, {}));
       })
-      .catch(error => console.error('Error loading cards:', error));
+      .catch(error => {
+        console.error('Error loading cards:', error);
+        setAlert('Failed to load cards. Please try again later.');
+      });
   }, []);
 
   const handleRevealQuestCard = () => {
@@ -92,7 +101,6 @@ function Board() {
   };
 
   const handleCompleteCard = (isCompleted) => {
-    console.log('handleCompleteCard called'); // Kontrolní výpis
     if (isCompleted && revealedCard && revealedCard.assignedPlayers) {
       const updatedPlayers = players.map(player => {
         if (revealedCard.assignedPlayers.includes(player.name)) {
@@ -107,7 +115,6 @@ function Board() {
       newCompletedCards[selectedSector].quests.push(revealedCard.index);
       setCompletedCards(newCompletedCards);
 
-      console.log('Playing success sound'); // Kontrolní výpis
       successSound.play(); // Přidání zvuku úspěchu
 
       if (points + revealedCard.points >= MAX_POINTS) {
@@ -118,15 +125,11 @@ function Board() {
   };
 
   const handleCompleteEventCard = (isCompleted) => {
-    console.log('handleCompleteEventCard called'); // Kontrolní výpis
     if (isCompleted && revealedEventCard) {
       const requiredPoints = revealedEventCard.points;
       if (points >= requiredPoints) {
-        // Logika pro splnění Event karty a postup do dalšího sektoru
         setAlert(`Event card for sector ${selectedSector} has been completed. Moving to next sector.`);
-        console.log('Playing whoosh sound'); // Kontrolní výpis
         whooshSound.play();
-        console.log('Playing success sound'); // Kontrolní výpis
         successSound.play(); // Přidání zvuku úspěchu
         const nextSectorIndex = (SECTORS.indexOf(selectedSector) + 1) % SECTORS.length;
         const nextSector = SECTORS[nextSectorIndex];
