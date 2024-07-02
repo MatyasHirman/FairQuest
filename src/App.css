@@ -36,9 +36,6 @@
     transform: rotate(360deg);
   }
 }
-.App {
-  text-align: center;
-}
 
 .App-header {
   background-color: #ADD8E6; /* Světle modrá barva */
@@ -68,12 +65,28 @@
   text-align: center;
 }
 
+.total-points {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 20px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.total-points:hover {
+  transform: scale(1.1);
+}
+
 .ProgressBar {
   width: 100%;
   background-color: #ccc;
   border-radius: 5px;
   overflow: hidden;
   margin: 20px 0;
+  transition: transform 0.3s ease-in-out;
+}
+
+.ProgressBar:hover {
+  transform: scale(1.05);
 }
 
 .ProgressBarFill {
@@ -145,12 +158,18 @@
 }
 
 .custom-jumbotron {
-  background-color: #4B0082; /* Královská fialová */
+  background-color: #3d065a; /* Královská fialová */
   color: white;
   padding: 2rem 1rem;
   text-align: left;
   border-radius: 0.3rem; /* Přidání mírného zaoblení rohů */
+  transition: transform 0.3s ease-in-out;
 }
+
+.custom-jumbotron:hover {
+  transform: scale(1.05);
+}
+
 /* Animace pro odhalení karty */
 .card-flip {
   transition: transform 0.6s;
@@ -201,4 +220,31 @@
   to {
     box-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
   }
+}
+
+/* Styl pro sektorové tlačítko */
+.sector-button {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  background-color: #3d065a; /* Tmavě šedá */
+  border-color: #3d065a;
+  color: white;
+}
+
+/* Styl pro tlačítko odhalení event karet */
+.event-button {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  background-color: #000; /* Černá */
+  border-color: #000;
+  color: white;
+}
+
+/* Styl pro tlačítko odhalení quest karet */
+.quest-button {
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  background-color: #00008B; /* Tmavě modrá */
+  border-color: #00008B;
+  color: white;
 }

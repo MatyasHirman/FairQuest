@@ -3,7 +3,7 @@ import TaskCard from './Card';
 import EventCard from './EventCard';
 import Player from './Player';
 import CustomProgressBar from './ProgressBar';
-import Timer from './Timer'; // Přidání importu Timer
+import Timer from './Timer';
 import * as XLSX from 'xlsx';
 import { Container, Row, Col, Button, Dropdown, DropdownButton, Alert, Modal } from 'react-bootstrap';
 import { flipSound, successSound, whooshSound } from '../sounds';
@@ -189,14 +189,14 @@ function Board() {
           <Player key={player.name} name={player.name} points={player.points} />
         ))}
       </div>
-      <Row className="mb-3 align-items-center">
+      <Row className="mb-3">
         <Col>
           <DropdownButton
             id="dropdown-basic-button"
             title={`Current Sector: ${selectedSector}`}
             variant="dark"
             onSelect={handleSectorChange}
-            className="fade-in"
+            className="fade-in sector-button"
           >
             {SECTORS.map(sector => (
               <Dropdown.Item key={sector} eventKey={sector}>
@@ -206,14 +206,14 @@ function Board() {
           </DropdownButton>
         </Col>
         <Col className="text-right">
-          <Timer /> {/* Přidání komponenty Timer */}
+          <Timer />
         </Col>
       </Row>
       {alert && <Alert variant="warning">{alert}</Alert>}
       <Row>
         <Col xs={12} md={6}>
           <div className="EventCards">
-            <Button variant="dark" onClick={handleRevealEventCard}>Reveal Event Card</Button>
+            <Button variant="dark" className="event-button" onClick={handleRevealEventCard}>Reveal Event Card</Button>
             {revealedEventCard && (
               <EventCard
                 title={revealedEventCard.title}
@@ -227,7 +227,7 @@ function Board() {
         </Col>
         <Col xs={12} md={6}>
           <div className="QuestCards">
-            <Button variant="dark" onClick={handleRevealQuestCard}>Reveal Quest Card</Button>
+            <Button variant="dark" className="quest-button" onClick={handleRevealQuestCard}>Reveal Quest Card</Button>
             {revealedCard && (
               <TaskCard
                 title={revealedCard.title}

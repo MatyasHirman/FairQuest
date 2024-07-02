@@ -5,7 +5,7 @@ import './App.css';
 
 function App() {
   return (
-    <Container>
+    <Container className="app-container">
       <div className="custom-jumbotron">
         <h1>FAIR Quest</h1>
       </div>
