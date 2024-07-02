@@ -3,12 +3,13 @@ import TaskCard from './Card';
 import EventCard from './EventCard';
 import Player from './Player';
 import CustomProgressBar from './ProgressBar';
+import Timer from './Timer'; // Přidání importu Timer
 import * as XLSX from 'xlsx';
 import { Container, Row, Col, Button, Dropdown, DropdownButton, Alert, Modal } from 'react-bootstrap';
 import { flipSound, successSound, whooshSound } from '../sounds';
 import './Board.css';
 
-const MAX_POINTS = 50;
+const MAX_POINTS = 200;
 const SECTORS = ['Plan', 'Collect', 'Process', 'Analyze', 'Preserve', 'Share', 'Reuse'];
 
 function Board() {
@@ -62,6 +63,12 @@ function Board() {
       });
   }, []);
 
+  useEffect(() => {
+    // Aktualizace celkového počtu bodů
+    const totalPoints = players.reduce((sum, player) => sum + player.points, 0);
+    setPoints(totalPoints);
+  }, [players]);
+
   const handleRevealQuestCard = () => {
     if (!revealedEventCard) {
       setAlert('You must reveal an Event card before revealing Quest cards.');
@@ -109,7 +116,6 @@ function Board() {
         return player;
       });
       setPlayers(updatedPlayers);
-      setPoints(points + revealedCard.points);
 
       const newCompletedCards = { ...completedCards };
       newCompletedCards[selectedSector].quests.push(revealedCard.index);
@@ -128,6 +134,7 @@ function Board() {
     if (isCompleted && revealedEventCard) {
       const requiredPoints = revealedEventCard.points;
       if (points >= requiredPoints) {
+        // Logika pro splnění Event karty a postup do dalšího sektoru
         setAlert(`Event card for sector ${selectedSector} has been completed. Moving to next sector.`);
         whooshSound.play();
         successSound.play(); // Přidání zvuku úspěchu
@@ -182,7 +189,7 @@ function Board() {
           <Player key={player.name} name={player.name} points={player.points} />
         ))}
       </div>
-      <Row className="mb-3">
+      <Row className="mb-3 align-items-center">
         <Col>
           <DropdownButton
             id="dropdown-basic-button"
@@ -197,6 +204,9 @@ function Board() {
               </Dropdown.Item>
             ))}
           </DropdownButton>
+        </Col>
+        <Col className="text-right">
+          <Timer /> {/* Přidání komponenty Timer */}
         </Col>
       </Row>
       {alert && <Alert variant="warning">{alert}</Alert>}

@@ -1,0 +1,22 @@
+.timer {
+    text-align: match-parent;
+    margin-top: 20px;
+  }
+  
+  .timer-input {
+    width: 50px;
+    text-align: left;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+  }
+  
+  .timer-display {
+    text-align: match-parent;
+    font-size: 4rem;
+    margin: 1px 0;
+  }
+  
+  .timer-controls button {
+    text-align: match-parent;
+    margin: 0 5px;
+  }
