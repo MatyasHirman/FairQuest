@@ -221,30 +221,3 @@
     box-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
   }
 }
-
-/* Styl pro sektorové tlačítko */
-.sector-button {
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  background-color: #3d065a; /* Tmavě šedá */
-  border-color: #3d065a;
-  color: white;
-}
-
-/* Styl pro tlačítko odhalení event karet */
-.event-button {
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  background-color: #000; /* Černá */
-  border-color: #000;
-  color: white;
-}
-
-/* Styl pro tlačítko odhalení quest karet */
-.quest-button {
-  font-size: 1.2rem;
-  padding: 10px 20px;
-  background-color: #00008B; /* Tmavě modrá */
-  border-color: #00008B;
-  color: white;
-}
