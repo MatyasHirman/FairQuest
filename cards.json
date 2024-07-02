@@ -1,0 +1,10 @@
+[
+    { "title": "Collect Data", "description": "Collect 5 data points", "points": 5 },
+    { "title": "Analyze Data", "description": "Analyze the collected data", "points": 10 },
+    { "title": "Process Data", "description": "Process the raw data", "points": 8 },
+    { "title": "Share Data", "description": "Share your data with peers", "points": 7 },
+    { "title": "Preserve Data", "description": "Ensure long-term preservation of data", "points": 6 },
+    { "title": "Plan Data", "description": "Plan your data management strategy", "points": 4 },
+    { "title": "Reuse Data", "description": "Find ways to reuse existing data", "points": 9 }
+  ]
+  

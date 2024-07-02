@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/MatyasHirman/FairQuest.git/static/css/main.578d78cd.css",
+    "main.js": "/MatyasHirman/FairQuest.git/static/js/main.676095f9.js",
+    "static/js/453.e078a68f.chunk.js": "/MatyasHirman/FairQuest.git/static/js/453.e078a68f.chunk.js",
+    "index.html": "/MatyasHirman/FairQuest.git/index.html",
+    "main.578d78cd.css.map": "/MatyasHirman/FairQuest.git/static/css/main.578d78cd.css.map",
+    "main.676095f9.js.map": "/MatyasHirman/FairQuest.git/static/js/main.676095f9.js.map",
+    "453.e078a68f.chunk.js.map": "/MatyasHirman/FairQuest.git/static/js/453.e078a68f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.578d78cd.css",
+    "static/js/main.676095f9.js"
+  ]
+}
