@@ -1,0 +1,72 @@
+/* src/components/Board.css */
+
+.Players {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center; /* Přidáme zarovnání na střed */
+  }
+  
+  .points-label {
+    font-weight: bold;
+    margin-right: 1rem; /* Přidáme odsazení napravo od textu */
+  }
+  
+  .EventCards, .QuestCards {
+    margin-top: 1rem;
+  }
+  
+  .custom-button-group {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+  
+  .custom-button-group .btn-dark {
+    background-color: #000;
+    border-color: #000;
+  }
+  
+  .total-points {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  .card {
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    margin: 10px;
+    background-color: #fff;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  
+  .card-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  
+  .card-text {
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+  
+  .card-points {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .button-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
