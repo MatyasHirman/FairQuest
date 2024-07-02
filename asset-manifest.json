@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/FairQuest/static/css/main.578d78cd.css",
-    "main.js": "/FairQuest/static/js/main.f770e6a1.js",
+    "main.js": "/FairQuest/static/js/main.91531abe.js",
     "static/js/453.e078a68f.chunk.js": "/FairQuest/static/js/453.e078a68f.chunk.js",
     "index.html": "/FairQuest/index.html",
     "main.578d78cd.css.map": "/FairQuest/static/css/main.578d78cd.css.map",
-    "main.f770e6a1.js.map": "/FairQuest/static/js/main.f770e6a1.js.map",
+    "main.91531abe.js.map": "/FairQuest/static/js/main.91531abe.js.map",
     "453.e078a68f.chunk.js.map": "/FairQuest/static/js/453.e078a68f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.578d78cd.css",
-    "static/js/main.f770e6a1.js"
+    "static/js/main.91531abe.js"
   ]
 }
