@@ -181,6 +181,45 @@ function Board() {
     }
   };
 
+  const handleSaveGame = () => {
+    const gameState = {
+      points,
+      revealedCard,
+      revealedEventCard,
+      selectedSector,
+      cards,
+      completedCards,
+      players,
+    };
+    localStorage.setItem('fairQuestGameState', JSON.stringify(gameState));
+    alert('Game has been saved!');
+  };
+
+  const handleLoadGame = () => {
+    const savedGame = localStorage.getItem('fairQuestGameState');
+    if (savedGame) {
+      const {
+        points,
+        revealedCard,
+        revealedEventCard,
+        selectedSector,
+        cards,
+        completedCards,
+        players,
+      } = JSON.parse(savedGame);
+      setPoints(points);
+      setRevealedCard(revealedCard);
+      setRevealedEventCard(revealedEventCard);
+      setSelectedSector(selectedSector);
+      setCards(cards);
+      setCompletedCards(completedCards);
+      setPlayers(players);
+      alert('Game has been loaded!');
+    } else {
+      alert('No saved game found.');
+    }
+  };
+
   return (
     <Container>
       <div className="Players">
@@ -244,6 +283,16 @@ function Board() {
       </Row>
       <CustomProgressBar points={points} maxPoints={MAX_POINTS} />
       <div className="total-points">Total Points: {points}/{MAX_POINTS}</div>
+
+      <Row className="mt-3">
+        <Col className="text-left">
+          <Button variant="secondary" className="save-button" onClick={handleSaveGame}>Save Game</Button>
+          <Button variant="secondary" className="load-button" onClick={handleLoadGame}>Load Game</Button>
+        </Col>
+        <Col className="text-right">
+          <Button variant="secondary" className="download-button" href="path_to_your_pdf.pdf" download>Download Game Materials</Button>
+        </Col>
+      </Row>
 
       <Modal show={showEnding} onHide={() => setShowEnding(false)}>
         <Modal.Header closeButton>

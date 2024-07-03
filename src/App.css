@@ -1,3 +1,5 @@
+/* App.css */
+
 .App {
   text-align: center;
 }
@@ -37,6 +39,10 @@
   }
 }
 
+.App {
+  text-align: center;
+}
+
 .App-header {
   background-color: #ADD8E6; /* Světle modrá barva */
   color: white;
@@ -65,6 +71,7 @@
   text-align: center;
 }
 
+/* Váš soubor App.css */
 .total-points {
   font-size: 1.5rem;
   font-weight: bold;
@@ -95,6 +102,7 @@
   width: 0;
   transition: width 0.5s ease-in-out;
 }
+
 
 .Buttons {
   text-align: center;
@@ -157,8 +165,9 @@
   text-align: center;
 }
 
+/* Váš soubor App.css */
 .custom-jumbotron {
-  background-color: #3d065a; /* Královská fialová */
+  background-color: #4B0082; /* Královská fialová */
   color: white;
   padding: 2rem 1rem;
   text-align: left;
@@ -169,6 +178,7 @@
 .custom-jumbotron:hover {
   transform: scale(1.05);
 }
+
 
 /* Animace pro odhalení karty */
 .card-flip {
@@ -220,4 +230,36 @@
   to {
     box-shadow: 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff;
   }
+}
+
+.event-button {
+  background-color: #000; /* Černá barva */
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+}
+
+.quest-button {
+  background-color: #00008B; /* Tmavě modrá barva */
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+}
+
+.save-button, .load-button {
+  background-color: #4B0082; /* Královská fialová barva */
+  color: #6c757d;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  margin-top: 20px;
+  margin-right: 10px;
+}
+
+.download-button {
+  background-color: #FFD700; /* Zlatá barva */
+  color: #6c757d;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+  margin-top: 20px;
+  margin-right: 10px;
 }
