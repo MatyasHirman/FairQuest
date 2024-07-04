@@ -263,3 +263,13 @@
   margin-top: 20px;
   margin-right: 10px;
 }
+.save-button,
+.load-button,
+.tutorial-button,
+.download-button {
+  margin: 5px;
+}
+
+.tutorial-button {
+  margin-left: 5;
+}

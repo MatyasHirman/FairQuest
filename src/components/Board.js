@@ -8,6 +8,7 @@ import * as XLSX from 'xlsx';
 import { Container, Row, Col, Button, Dropdown, DropdownButton, Alert, Modal } from 'react-bootstrap';
 import { flipSound, successSound, whooshSound } from '../sounds';
 import './Board.css';
+import './Tutorial.css';
 
 const MAX_POINTS = 200;
 const SECTORS = ['Plan', 'Collect', 'Process', 'Analyze', 'Preserve', 'Share', 'Reuse'];
@@ -27,6 +28,8 @@ function Board() {
   ]);
   const [alert, setAlert] = useState(null);
   const [showEnding, setShowEnding] = useState(false);
+  const [tutorialStep, setTutorialStep] = useState(0);
+  const [showTutorial, setShowTutorial] = useState(false);
 
   useEffect(() => {
     console.log("Fetching cards.xlsx");
@@ -220,6 +223,45 @@ function Board() {
     }
   };
 
+  const tutorialSteps = [
+    { element: '.Players', text: 'Here are the players and their points.' },
+    { element: '.sector-button', text: 'Select the current sector here.' },
+    { element: '.Timer', text: 'Set the timer for the game.' },
+    { element: '.event-button', text: 'Reveal an Event Card here.' },
+    { element: '.quest-button', text: 'Reveal a Quest Card here.' },
+    { element: '.ProgressBar', text: 'This is the progress bar showing your points.' },
+    { element: '.total-points', text: 'These are the total points collected.' },
+    { element: '.save-button', text: 'Save your game progress.' },
+    { element: '.load-button', text: 'Load your saved game.' },
+    { element: '.download-button', text: 'Download game materials here.' },
+  ];
+
+  const startTutorial = () => {
+    setShowTutorial(true);
+    setTutorialStep(0);
+  };
+
+  const nextTutorialStep = () => {
+    if (tutorialStep < tutorialSteps.length - 1) {
+      setTutorialStep(tutorialStep + 1);
+    } else {
+      setShowTutorial(false);
+    }
+  };
+
+  const getTutorialStepStyle = (element) => {
+    const targetElement = document.querySelector(element);
+    if (targetElement) {
+      const rect = targetElement.getBoundingClientRect();
+      return {
+        top: rect.top + window.scrollY,
+        left: rect.left + window.scrollX + (element === '.Timer' ? rect.width / 4 : 0), // Adjust for Timer
+        width: rect.width,
+      };
+    }
+    return {};
+  };
+
   return (
     <Container>
       <div className="Players">
@@ -244,7 +286,7 @@ function Board() {
             ))}
           </DropdownButton>
         </Col>
-        <Col className="text-right">
+        <Col className="text-center">
           <Timer />
         </Col>
       </Row>
@@ -288,6 +330,7 @@ function Board() {
         <Col className="text-left">
           <Button variant="secondary" className="save-button" onClick={handleSaveGame}>Save Game</Button>
           <Button variant="secondary" className="load-button" onClick={handleLoadGame}>Load Game</Button>
+          <Button variant="secondary" className="tutorial-button" onClick={startTutorial}>Tutorial</Button>
         </Col>
         <Col className="text-right">
           <Button variant="secondary" className="download-button" href="path_to_your_pdf.pdf" download>Download Game Materials</Button>
@@ -307,6 +350,15 @@ function Board() {
           <Button variant="secondary" onClick={() => setShowEnding(false)}>Close</Button>
         </Modal.Footer>
       </Modal>
+
+      {showTutorial && (
+        <div className="tutorial-overlay">
+          <div className="tutorial-step" style={getTutorialStepStyle(tutorialSteps[tutorialStep].element)}>
+            <p>{tutorialSteps[tutorialStep].text}</p>
+            <Button variant="secondary" onClick={nextTutorialStep}>Next</Button>
+          </div>
+        </div>
+      )}
     </Container>
   );
 }

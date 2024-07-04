@@ -83,14 +83,8 @@
 }
 
 .quest-button {
-  background-color: black; /* Černé pozadí */
-  border-color: black;     /* Černé ohraničení */
-  color: white;            /* Bílý text */
-  font-weight: bold;       /* Tučný text */
+  background-color: #00370c;
+  color: white;
+  font-size: 1.2rem;
+  padding: 10px 20px;
 }
-
-.quest-button:hover {
-  background-color: #333;  /* Tmavší černé pozadí při hoveru */
-  border-color: #333;      /* Tmavší černé ohraničení při hoveru */
-}
-
