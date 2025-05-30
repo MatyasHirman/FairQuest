@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useGame } from '../context/GameContext';
 import { useNavigate } from 'react-router-dom';
 import Timer from './Timer';

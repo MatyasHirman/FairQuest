@@ -63,15 +63,13 @@ const Tutorial = ({ currentStep, onNextStep, onClose }) => {
 
   const step = tutorialSteps[currentStep];
   
-  // Calculate tooltip position with viewport bounds checking
+  // Calculate tooltip position
   let tooltipStyle = {};
   const margin = 20;
-  const tooltipWidth = 300; // Width of the tooltip
-  const tooltipHeight = 120; // Approximate height of the tooltip
+  const tooltipWidth = 300;
+  const tooltipHeight = 120;
   
   const calculatePosition = () => {
-    let left, top, right, bottom;
-    
     switch (step.position) {
       case 'right':
         // Check if tooltip would overflow right edge
