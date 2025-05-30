@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/FairQuest/static/css/main.29047ea3.css",
-    "main.js": "/FairQuest/static/js/main.786fb744.js",
-    "static/js/453.e078a68f.chunk.js": "/FairQuest/static/js/453.e078a68f.chunk.js",
-    "index.html": "/FairQuest/index.html",
-    "main.29047ea3.css.map": "/FairQuest/static/css/main.29047ea3.css.map",
-    "main.786fb744.js.map": "/FairQuest/static/js/main.786fb744.js.map",
-    "453.e078a68f.chunk.js.map": "/FairQuest/static/js/453.e078a68f.chunk.js.map"
+    "main.css": "/fair-quest/static/css/main.29047ea3.css",
+    "main.js": "/fair-quest/static/js/main.36ca03a6.js",
+    "static/js/453.e078a68f.chunk.js": "/fair-quest/static/js/453.e078a68f.chunk.js",
+    "index.html": "/fair-quest/index.html",
+    "main.29047ea3.css.map": "/fair-quest/static/css/main.29047ea3.css.map",
+    "main.36ca03a6.js.map": "/fair-quest/static/js/main.36ca03a6.js.map",
+    "453.e078a68f.chunk.js.map": "/fair-quest/static/js/453.e078a68f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.29047ea3.css",
-    "static/js/main.786fb744.js"
+    "static/js/main.36ca03a6.js"
   ]
 }
