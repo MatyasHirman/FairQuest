@@ -80,4 +80,25 @@
   background: white !important;
   transform: scale(1.05);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.event-card.event-complete {
+  border-color: #007bff;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+}
+
+.event-card.event-complete .event-points {
+  color: #007bff;
+}
+
+.complete-event-btn.ready {
+  background-color: #007bff;
+  color: white;
+  font-weight: 500;
+}
+
+.complete-event-btn.ready:hover {
+  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 } 

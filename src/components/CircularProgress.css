@@ -1,0 +1,32 @@
+.circular-progress {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.sector-indicator {
+  fill: #6c757d;
+  stroke: white;
+  stroke-width: 2;
+  transition: all 0.3s ease;
+}
+
+.sector-indicator.active {
+  fill: #343a40;
+}
+
+.sector-text {
+  fill: white;
+  font-size: 12px;
+  text-transform: lowercase;
+  pointer-events: none;
+}
+
+.connector-line {
+  stroke: #6c757d;
+  stroke-width: 2;
+  stroke-dasharray: 5,5;
+  opacity: 0.5;
+} 

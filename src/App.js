@@ -1,24 +1,18 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
-import Board from './components/Board';
-import GameStage from './components/GameStage';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { GameProvider } from './context/GameContext';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import LandingPage from './components/LandingPage';
+import Board from './components/Board';
 import './App.css';
 
 function App() {
   return (
     <GameProvider>
-      <div className="App">
-        <Container>
-          <header className="App-header">
-            <h1>Fair Quest</h1>
-            <p>Educational Game for Research Data Management</p>
-          </header>
-          <GameStage />
-          <Board />
-        </Container>
-      </div>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/game" element={<Board />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
     </GameProvider>
   );
 }

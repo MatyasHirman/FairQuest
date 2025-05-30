@@ -2,21 +2,103 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    right: 0;
+    bottom: 0;
     z-index: 1000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .tutorial-step {
+    pointer-events: none; /* Allow clicking through the overlay */
+}
+
+.tutorial-step {
     background: white;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
     z-index: 1100;
     position: absolute;
-  }
+}
+
+.tutorial-highlight {
+    position: fixed;
+    border: 2px solid #007bff;
+    border-radius: 4px;
+    z-index: 1001;
+    pointer-events: none;
+    animation: highlight-blink 1.5s infinite;
+}
+
+.tutorial-tooltip {
+    position: fixed;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    pointer-events: all;
+    z-index: 1002;
+}
+
+.tutorial-tooltip p {
+    margin: 0 0 1rem 0;
+    color: #2c3e50;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.tutorial-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tutorial-tooltip.right {
+    transform: translate(0, -50%);
+}
+
+.tutorial-tooltip.left {
+    transform: translate(0, -50%);
+}
+
+.tutorial-tooltip.top {
+    transform: translate(-50%, 0);
+}
+
+.tutorial-tooltip.bottom {
+    transform: translate(-50%, 0);
+}
+
+@keyframes highlight-blink {
+    0% {
+        border-color: rgba(0, 123, 255, 1);
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+    50% {
+        border-color: rgba(0, 123, 255, 0.2);
+        box-shadow: 0 0 15px rgba(0, 123, 255, 0.2);
+    }
+    100% {
+        border-color: rgba(0, 123, 255, 1);
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+}
+
+@media (max-width: 768px) {
+    .tutorial-tooltip {
+        width: 250px;
+        font-size: 0.9rem;
+    }
+
+    /* Adjust positions for mobile */
+    .tutorial-tooltip.right,
+    .tutorial-tooltip.left {
+        left: 50% !important;
+        right: auto !important;
+        transform: translate(-50%, -50%);
+    }
+
+    .tutorial-tooltip.top,
+    .tutorial-tooltip.bottom {
+        left: 50% !important;
+        transform: translate(-50%, 0);
+    }
+}
   

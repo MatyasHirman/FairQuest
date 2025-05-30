@@ -416,3 +416,9 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# IDE specific files
+.idea
+.vscode
+*.swp
+*.swo

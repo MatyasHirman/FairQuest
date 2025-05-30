@@ -3,77 +3,89 @@ import { Button } from 'react-bootstrap';
 import './Timer.css';
 
 const Timer = () => {
-  const [time, setTime] = useState(30); // Výchozí hodnota 30 sekund
+  const [time, setTime] = useState(30 * 60); // 30 minutes in seconds
   const [isRunning, setIsRunning] = useState(false);
-  const [inputTime, setInputTime] = useState('30');
+  const [showSetTime, setShowSetTime] = useState(false);
 
   useEffect(() => {
-    let timer;
+    let interval;
     if (isRunning && time > 0) {
-      timer = setInterval(() => {
+      interval = setInterval(() => {
         setTime(prevTime => prevTime - 1);
       }, 1000);
-    } else if (time === 0) {
-      clearInterval(timer);
-      setIsRunning(false);
-      alert('Time is up!');
     }
-    return () => clearInterval(timer);
+    return () => clearInterval(interval);
   }, [isRunning, time]);
 
+  const formatTime = (seconds) => {
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    return `${String(minutes).padStart(2, '0')}:${String(remainingSeconds).padStart(2, '0')}`;
+  };
+
   const handleStart = () => {
-    const parsedTime = parseInt(inputTime, 10);
-    if (!isNaN(parsedTime) && parsedTime > 0) {
-      setTime(parsedTime);
-      setIsRunning(true);
-    }
+    setIsRunning(true);
   };
 
   const handleStop = () => {
     setIsRunning(false);
   };
 
-  const handleReset = () => {
+  const handleSet = () => {
+    setShowSetTime(true);
     setIsRunning(false);
-    setTime(30);
-    setInputTime('30');
   };
 
-  const handleChangeTime = (e) => {
-    setInputTime(e.target.value);
-    const parsedTime = parseInt(e.target.value, 10);
-    if (!isNaN(parsedTime) && parsedTime > 0) {
-      setTime(parsedTime);
-    }
-  };
-
-  const formatTime = (seconds) => {
-    const m = Math.floor(seconds / 60).toString().padStart(2, '0');
-    const s = (seconds % 60).toString().padStart(2, '0');
-    return `${m}:${s}`;
+  const handleTimeSet = (minutes) => {
+    setTime(minutes * 60);
+    setShowSetTime(false);
   };
 
   return (
     <div className="timer">
-      <input
-        type="number"
-        value={inputTime}
-        onChange={handleChangeTime}
-        disabled={isRunning}
-        className="timer-input"
-      />
+      <div className="timer-icon">⌚</div>
       <div className="timer-display">{formatTime(time)}</div>
       <div className="timer-controls">
-        <Button variant="success" onClick={handleStart} disabled={isRunning}>
+        <Button
+          variant={isRunning ? "secondary" : "dark"}
+          onClick={handleStart}
+          disabled={isRunning}
+        >
           Start
         </Button>
-        <Button variant="danger" onClick={handleStop} disabled={!isRunning}>
+        <Button
+          variant={!isRunning ? "secondary" : "dark"}
+          onClick={handleStop}
+          disabled={!isRunning}
+        >
           Stop
         </Button>
-        <Button variant="secondary" onClick={handleReset}>
-          Reset
+        <Button
+          variant="secondary"
+          onClick={handleSet}
+        >
+          Set
         </Button>
       </div>
+
+      {showSetTime && (
+        <div className="timer-set-overlay">
+          <div className="timer-set-panel">
+            <h4>Set Timer</h4>
+            <div className="timer-presets">
+              {[5, 10, 15, 20, 25, 30].map(minutes => (
+                <Button
+                  key={minutes}
+                  variant="outline-dark"
+                  onClick={() => handleTimeSet(minutes)}
+                >
+                  {minutes} min
+                </Button>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
