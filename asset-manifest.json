@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/fair-quest/static/css/main.83e39337.css",
-    "main.js": "/fair-quest/static/js/main.e6a31e9e.js",
+    "main.js": "/fair-quest/static/js/main.ac6b3751.js",
     "static/js/453.e078a68f.chunk.js": "/fair-quest/static/js/453.e078a68f.chunk.js",
     "index.html": "/fair-quest/index.html",
     "main.83e39337.css.map": "/fair-quest/static/css/main.83e39337.css.map",
-    "main.e6a31e9e.js.map": "/fair-quest/static/js/main.e6a31e9e.js.map",
+    "main.ac6b3751.js.map": "/fair-quest/static/js/main.ac6b3751.js.map",
     "453.e078a68f.chunk.js.map": "/fair-quest/static/js/453.e078a68f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.83e39337.css",
-    "static/js/main.e6a31e9e.js"
+    "static/js/main.ac6b3751.js"
   ]
 }
