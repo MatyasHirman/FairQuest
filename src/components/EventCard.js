@@ -1,24 +1,37 @@
 import React from 'react';
 import { Card, Button } from 'react-bootstrap';
-import './Card.css';
+import './EventCard.css';
 
-function EventCard({ title, description, points, onComplete }) {
+const EventCard = ({ card, onComplete }) => {
+  if (!card) return null;
+
   return (
-    <Card className="task-card mb-3">
-      <Card.Body>
-        <Card.Title className="text-center">{title}</Card.Title>
-        <Card.Text>{description}</Card.Text>
-        <Card.Text className="text-center">Points Needed: {points}</Card.Text>
-        <hr />
-        <div className="task-completion text-center">
-          <h6>Event Completion:</h6>
-          <div className="d-flex justify-content-center">
-            <Button variant="success" className="completion-btn" onClick={() => onComplete(true)}>✔️ Complete</Button>
+    <div className="event-card-container">
+      <Card className="event-card">
+        <div className="event-card-inner">
+          <div className="event-card-header">
+            <h3>Event Card</h3>
+            <span className="event-points">{card.points} Points Required</span>
           </div>
+          <Card.Body>
+            <div className="event-content">
+              <h4>{card.title}</h4>
+              <p className="event-description">{card.description}</p>
+            </div>
+            <div className="event-footer">
+              <Button 
+                variant="primary" 
+                className="complete-event-btn"
+                onClick={() => onComplete(true)}
+              >
+                Complete Event
+              </Button>
+            </div>
+          </Card.Body>
         </div>
-      </Card.Body>
-    </Card>
+      </Card>
+    </div>
   );
-}
+};
 
 export default EventCard;

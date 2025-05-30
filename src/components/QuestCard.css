@@ -1,0 +1,84 @@
+.quest-card-container {
+  perspective: 1000px;
+  margin: 20px;
+}
+
+.quest-card {
+  background: linear-gradient(135deg, #2e7d32 0%, #4caf50 100%);
+  color: white;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.quest-card:hover {
+  transform: translateY(-5px);
+}
+
+.quest-card-inner {
+  padding: 20px;
+}
+
+.quest-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+.quest-card-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.quest-points {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #e8f5e9;
+}
+
+.quest-content {
+  margin-bottom: 20px;
+}
+
+.quest-content h4 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.quest-description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.quest-footer {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.complete-quest-btn {
+  background: #e8f5e9 !important;
+  color: #2e7d32 !important;
+  border: none !important;
+  padding: 10px 30px !important;
+  font-weight: bold !important;
+  border-radius: 25px !important;
+  transition: all 0.3s ease !important;
+}
+
+.complete-quest-btn:hover {
+  background: white !important;
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+} 
